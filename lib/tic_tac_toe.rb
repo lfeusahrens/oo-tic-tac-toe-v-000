@@ -71,8 +71,8 @@ WIN_COMBINATIONS = [
     end
   end
   
-  def full?(board)
-    board.all? {|token| token == "X" || token == "O"}
+  def full?
+    @board.all? {|token| token == "X" || token == "O"}
   end
   
   def draw?(board)
