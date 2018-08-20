@@ -64,10 +64,10 @@ WIN_COMBINATIONS = [
     end
   end 
  
-  def won?(board)
+  def won?
     
     WIN_COMBINATIONS.detect do |combos|
-      board[combos[0]] == board[combos[1]] && board[combos[2]] == board[combos[1]] && position_taken?(board, combos[0])
+      @board[combos[0]] == @board[combos[1]] && @board[combos[2]] == @board[combos[1]] && position_taken?(combos[0])
     end
   end
   
