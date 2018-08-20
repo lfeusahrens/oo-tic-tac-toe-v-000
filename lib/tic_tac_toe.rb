@@ -31,10 +31,10 @@ WIN_COMBINATIONS = [
     @board[index] = value
   end
   
-  def position_taken?(board, index)
-    if board[index] == "X" || board[index] == "O"
+  def position_taken?(index)
+    if @board[index] == "X" || @board[index] == "O"
       true
-    elsif board[index] == " " || "" || nil
+    elsif @board[index] == " " || "" || nil
       false
     end
   end 
