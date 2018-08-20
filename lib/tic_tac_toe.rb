@@ -29,7 +29,7 @@ WIN_COMBINATIONS = [
   
   def move(board, index, value)
     board[index] = value
-end
+  end
  
 def valid_move?(board, index)
   !position_taken?(board, index) && index.between?(0, 8)
