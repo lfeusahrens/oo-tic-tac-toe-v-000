@@ -57,15 +57,10 @@ end
   end
 end 
  
- def turn_count(board)
-  turn = 0
-  board.each do |token|
-    if token == "X" || token == "O"
-    turn += 1
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
   end
-  end
-  turn
-end
+  
    def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
