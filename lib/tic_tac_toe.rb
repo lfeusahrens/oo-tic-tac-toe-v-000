@@ -30,40 +30,37 @@ WIN_COMBINATIONS = [
   def move(board, index, value)
     board[index] = value
   end
- 
-def valid_move?(board, index)
-  !position_taken?(board, index) && index.between?(0, 8)
-end
-
- def position_taken?(board, index)
-  if board[index] == "X" || board[index] == "O"
-    true
-  elsif board[index] == " " || "" || nil
-    false
-  end
-end  
-
-
-
-
- def turn(board)
-  puts "Please enter 1-9:"
-  user_input = gets.strip
-  index = input_to_index(user_input)
   
- if valid_move?(board,index) 
-   move(board, index, current_player(board))
-   display_board(board)
- else
-   turn(board)
+  def position_taken?(board, index)
+    if board[index] == "X" || board[index] == "O"
+      true
+    elsif board[index] == " " || "" || nil
+      false
+    end
+  end 
+ 
+  def valid_move?(board, index)
+    !position_taken?(board, index) && index.between?(0, 8)
   end
-end 
+
+  def turn(board)
+    puts "Please enter 1-9:"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+  
+    if valid_move?(board,index) 
+      move(board, index, current_player(board))
+      display_board(board)
+    else
+      turn(board)
+    end
+  end 
  
   def turn_count
     @board.count{|token| token == "X" || token == "O"}
   end
   
-   def current_player
+  def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
  
@@ -98,15 +95,16 @@ end
     end
   end 
 
-def play(board)
-  until over?(board)
-    turn(board)
-  end
+  def play(board)
+    until over?(board)
+      turn(board)
+    end
  
-  if won?(board)
-    puts "Congratulations #{winner(board) + "!"}"
-  else draw?(board)
-  puts "Cat's Game!"
-end
-end
+    if won?(board)
+      puts "Congratulations #{winner(board) + "!"}"
+    else draw?(board)
+      puts "Cat's Game!"
+    end
+  end
+  
 end
