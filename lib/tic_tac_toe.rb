@@ -40,7 +40,7 @@ WIN_COMBINATIONS = [
   end 
  
   def valid_move?
-    @board.!position_taken? && index.between?(0, 8)
+    @board.!position_taken?
   end
 
   def turn(board)
