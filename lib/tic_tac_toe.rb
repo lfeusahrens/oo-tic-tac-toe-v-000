@@ -39,7 +39,7 @@ WIN_COMBINATIONS = [
     end
   end 
  
-  def valid_move?
+  def valid_move?(index)
     @board.!position_taken?(index) && index.between?(0, 8)
   end
 
@@ -48,7 +48,7 @@ WIN_COMBINATIONS = [
     user_input = gets.strip
     index = input_to_index(user_input)
   
-    if valid_move?
+    if valid_move?(index)
       move(index, current_player)
       display_board
     else
