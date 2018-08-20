@@ -50,6 +50,19 @@ WIN_COMBINATIONS = [
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
+  
+  def turn(board)
+    puts "Please enter 1-9:"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+  
+    if valid_move?(board,index) 
+      move(board, index, current_player(board))
+      display_board(board)
+    else
+      turn(board)
+    end
+  end 
  
   def won?(board)
     
