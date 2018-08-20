@@ -79,30 +79,30 @@ WIN_COMBINATIONS = [
     full? && !won?
   end
   
-  def over?(board)
-    draw?(board) || won?(board)
+  def over?
+    draw? || won?
   end
   
-  def winner(board)
-    winner = won?(board)
+  def winner
+    winner = won?
     
     if winner 
       index = winner[0]
-      board[index]
+      @board[index]
       
     else
       nil
     end
   end 
 
-  def play(board)
-    until over?(board)
-      turn(board)
+  def play
+    until over?
+      turn
     end
  
-    if won?(board)
-      puts "Congratulations #{winner(board) + "!"}"
-    else draw?(board)
+    if won?
+      puts "Congratulations #{winner + "!"}"
+    else draw?
       puts "Cat's Game!"
     end
   end
